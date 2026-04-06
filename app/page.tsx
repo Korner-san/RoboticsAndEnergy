@@ -64,54 +64,68 @@ const articles = [
 
 const HomePage: React.FC = () => {
   return (
-    <div className="bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-robotics-dark mb-6">
-              DIY Electronic Projects
+    <div className="bg-[#f8fafc] overflow-hidden min-h-screen">
+      
+      {/* Premium Hero Section with Animated Orbs */}
+      <section className="relative py-28 lg:py-40 flex items-center justify-center overflow-hidden">
+        
+        {/* Animated Background Orbs */}
+        <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
+        <div className="absolute top-0 -right-4 w-72 h-72 bg-robotics-blue rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000" />
+        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000" />
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-5xl mx-auto animate-fade-in-up">
+            <span className="inline-block py-1.5 px-4 mb-6 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-sm font-semibold tracking-wide shadow-sm">
+              Level up your Maker Skills
+            </span>
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 text-gray-900">
+              Build Extraordinary <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-robotics-blue via-teal-400 to-purple-500">
+                Electronic Projects
+              </span>
             </h1>
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              Robotics and Energy&apos;s electronic projects provide step by step guidance and detailed
-              instructions on how to create different electronic projects:
+            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-12 max-w-3xl mx-auto font-light">
+              Robotics and Energy provides detailed step-by-step guidance on creating fascinating hardware, software, and robotics masterpieces.
             </p>
 
-            <div className="bg-gray-50 rounded-lg p-8 mb-8 text-left">
-              <h2 className="text-2xl font-semibold text-robotics-dark mb-6">
-                In each project page you will find:
+            <div className="bg-white/60 backdrop-blur-xl rounded-[32px] p-8 md:p-12 mb-8 text-left shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white max-w-4xl mx-auto transform transition hover:scale-[1.01] duration-500">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 border-b border-gray-100 pb-4">
+                What you'll find in each project:
               </h2>
-              <ul className="space-y-3 text-gray-700">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[
-                  'A video showcasing the project',
-                  'A list of components needed',
-                  'Hardware and software details',
-                  'Information on what can be learned',
-                  'Everything you need to acquire the knowledge to build the project yourself by reading the instructions.',
+                  'High-quality video showcases',
+                  'Comprehensive component lists',
+                  'In-depth hardware & software wiring',
+                  'Core theoretical concepts explained',
+                  'Downloadable code implementations',
+                  'Troubleshooting common pitfalls',
                 ].map((item) => (
-                  <li key={item} className="flex items-start">
-                    <span className="text-robotics-blue mr-3 mt-1">–</span>
-                    {item}
-                  </li>
+                  <div key={item} className="flex items-center space-x-4 bg-gray-50/50 p-4 rounded-2xl border border-gray-100">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-robotics-blue/10 flex items-center justify-center text-robotics-blue">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <span className="text-gray-700 font-medium">{item}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
-
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Create your own unique electronic project that suits your style and needs. You can
-              assist yourself by following the steps detailed in our projects if necessary.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* Featured Projects */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-robotics-dark mb-12">
-            Featured Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Featured Projects Grid */}
+      <section className="py-24 relative z-20">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+              Featured Projects
+            </h2>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-robotics-blue to-purple-500 mx-auto rounded-full" />
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {projects.map((project, index) => (
               <ProjectCard
                 key={index}
@@ -126,48 +140,48 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Arduino Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-robotics-dark mb-6">
-              Arduino for Electronic projects
-            </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              A combination of the following characteristics – ease of use, large community of
-              support, affordability, cross-platform compatibility, and a huge ecosystem of shields
-              and modules makes Arduino the most popular choice nowadays among beginners that are
-              trying to learn about microcontrollers and create electronic DIY type projects. Follow
-              our projects and see how we made it work.
-            </p>
+      {/* Informational Blocks - Arduino & Raspberry Pi */}
+      <section className="py-20 bg-gradient-to-b from-white to-[#f8fafc]">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Arduino */}
+            <div className="bg-white rounded-3xl p-10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+              <div className="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center mb-6">
+                 <span className="text-3xl">🎛️</span>
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Arduino Ecosystem
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Ease of use, massive community support, and affordability make Arduino the premier choice for electronics beginners and professionals alike. Build powerful IoT circuits and automation bots effortlessly.
+              </p>
+            </div>
+
+            {/* Raspberry Pi */}
+            <div className="bg-white rounded-3xl p-10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+              <div className="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center mb-6">
+                 <span className="text-3xl">🍓</span>
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Advanced Raspberry Pi
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Unlock true computing power with single-board computers. Handle complex machine learning, advanced operating systems, and heavy network traffic with our Raspberry Pi guides.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Raspberry Pi Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-robotics-dark mb-6">
-              Advanced Electronic projects with Raspberry Pi
+      {/* Recent Articles Grid */}
+      <section className="py-24 relative z-20">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+              Latest from the Lab
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Raspberry Pi is amazing for some DIY electronic projects. It is a powerful and
-              versatile single-board computer that can handle more complex tasks than Arduino.
-              However, Raspberry Pi requires more power and may be more difficult to use for
-              beginners, since it requires more knowledge of operating systems and programming.
-              Learn more about Raspberry Pi by following our projects.
-            </p>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-teal-400 to-robotics-blue mx-auto rounded-full" />
           </div>
-        </div>
-      </section>
-
-      {/* Recent Articles */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-robotics-dark mb-12">
-            Recent articles
-          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {articles.map((article, index) => (
               <ArticleCard

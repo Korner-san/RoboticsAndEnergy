@@ -1,0 +1,21 @@
+# Design Aesthetics & UI Rules for Robotics and Energy
+
+When modifying the UI or creating new pages/components for this project, you MUST adhere to the following premium design rules:
+
+## 1. Glassmorphism & High-Fidelity Styling
+- DO NOT use plain white boxes with plain gray borders (`bg-white border-gray-200`).
+- INSTEAD, use Glassmorphism utilities: `bg-white/60`, `backdrop-blur-xl`, `border border-white/40`, and soft shadows `shadow-[0_8px_30px_rgb(0,0,0,0.04)]`.
+- Wrap interactive card elements in `group` and apply `hover:-translate-y-2` alongside shadow enhancement.
+
+## 2. Dynamic Aesthetics & Gradients
+- Incorporate subtle background glowing orbs using `animate-blob` and `mix-blend-multiply` to avoid flat, lifeless designs. 
+- Headers and bold text should frequently use `bg-clip-text text-transparent bg-gradient-to-r` using our branded colors (`from-robotics-dark`, `to-robotics-blue`, `purple-500`, etc).
+
+## 3. Image Responsiveness & Fit
+- DO NOT artificially force images into harsh aspects using strict `height` paired with `object-cover` that clips important contextual visuals.
+- INSTEAD, if aspect ratios of content vary:
+  1. Increase the box height to give breathing room (e.g., `h-64` or `350px`).
+  2. For critical project hero views, prefer passing `object-contain` to the image and inserting a cloned, `blur-2xl` scale version beneath it to fill the negative space beautifully.
+
+## 4. Typography
+- Standardize on `Inter`. Ensure tracking is kept tight (`tracking-tight`) on large headers and generous line-heights are applied to paragraph text (`leading-relaxed`).

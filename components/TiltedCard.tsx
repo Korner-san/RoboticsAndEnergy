@@ -30,10 +30,10 @@ export default function TiltedCard({
   imageSrc,
   altText = 'Tilted card image',
   captionText = '',
-  containerHeight = '300px',
+  containerHeight = '350px',
   containerWidth = '100%',
-  imageHeight = '300px',
-  imageWidth = '300px',
+  imageHeight = '350px',
+  imageWidth = '100%',
   scaleOnHover = 1.1,
   rotateAmplitude = 14,
   showMobileWarning = true,
@@ -118,14 +118,17 @@ export default function TiltedCard({
           scale
         }}
       >
+        {/* Glow backdrop - blurred and scaled copy of the image to fill empty spaces */}
+        <motion.img
+          src={imageSrc}
+          alt=""
+          className="absolute inset-0 object-cover w-full h-full rounded-[15px] blur-2xl opacity-50 scale-110 pointer-events-none"
+        />
+
         <motion.img
           src={imageSrc}
           alt={altText}
-          className="absolute top-0 left-0 object-cover rounded-[15px] will-change-transform [transform:translateZ(0)]"
-          style={{
-            width: imageWidth,
-            height: imageHeight
-          }}
+          className="absolute inset-0 object-contain w-full h-full rounded-[15px] will-change-transform [transform:translateZ(0)] z-10"
         />
 
         {displayOverlayContent && overlayContent && (

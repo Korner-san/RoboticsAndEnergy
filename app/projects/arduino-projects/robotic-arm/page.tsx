@@ -192,11 +192,86 @@ const RoboticArmPage: React.FC = () => {
               </Section>
 
               <Section id="electrics" title="Electrics" isEven={true}>
-                <p className="text-gray-500 italic text-lg">[Content pending next steps]</p>
+                <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+                  <p>
+                    The circuit is fairly simple. No need for an engineering degree. Connect all of the servo motors to power in parallel. Brown wire is (-) and red wire is (+). The control wires which are colored orange or yellow go to the PWM pins of the Arduino. These are pins 3, 5, 6, 9, 10 and 11. I recommend using a shield compatible with all the I/O pins that provides parallel power lines to which you can solder regular pins. This way it is easier to connect the servos using their 3-pin female connectors.
+                  </p>
+                  <p>
+                    Powering up the system from a USB cable is not enough. We’ll need an external power source. I’m using a 12V lithium battery connected to a DC-DC step down BUCK converter. We’ll need a module that is capable of supplying 4A peak current. The XL4015 based circuits are very efficient as they lower the voltage and raise the current to the load at a 90% efficient rate. Set the output voltage to 5.1V. Measure the voltage with a DMM if the board doesn’t have an on-built display.
+                  </p>
+                  <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-6">
+                    <p className="text-red-800 font-medium m-0">
+                      Do not use voltage regulators for this sake or in any project that requires voltage regulation at high currents, because basic zener voltage regulators like the LM7805 don’t generate current gain and therefore are very inefficient and will heat up quickly.
+                    </p>
+                  </div>
+                  <p className="font-semibold text-gray-900 border-b border-gray-200 pb-2 mb-6">
+                    Refer to the schematic. Do not power up motors before uploading the software, because you still need to calibrate them to their default positions.
+                  </p>
+
+                  <div className="grid grid-cols-1 gap-8 mt-10 mb-8">
+                    <div className="rounded-xl overflow-hidden shadow-md border border-gray-100 flex justify-center bg-white p-2">
+                      <img src="/images/2021/01/Robotic-arm-pdf.jpeg" alt="Robotic arm schematic" className="max-w-full h-auto rounded-lg" />
+                    </div>
+                    <div className="rounded-xl overflow-hidden shadow-md border border-gray-100 flex justify-center bg-white p-2">
+                      <img src="/images/2023/03/WhatsApp-Image-2023-03-10-at-22.52.55.jpeg" alt="XL4015 DC-DC converter setup" className="max-w-full h-auto rounded-lg" />
+                    </div>
+                  </div>
+
+                  <p>
+                    We want to build a programmable and controllable arm. For that we need an interface that shows all the controls. Programming the robot arm to run pre-built commands will also be available through the interface. The best way to maintain this requirement is via computer software. For this purpose we developed a .NET framework windows application which is available for download for free. It will communicate with the Arduino board via USB interface, whereas the Arduino will serve as a bridge between the PC and the motors.
+                  </p>
+                </div>
               </Section>
 
               <Section id="software" title="Software" isEven={false}>
-                <p className="text-gray-500 italic text-lg">[Content pending next steps]</p>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">Calibration</h3>
+                <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+                  <p>
+                    Please watch the following video to know how to control and use the interface and calibrate the arm. Before watching the video and following the steps, Disengage the parts of the arm that are connected to the motors.
+                  </p>
+                  <div className="bg-blue-50/50 p-6 rounded-xl border border-blue-100 shadow-sm text-center my-8">
+                    <p className="mb-4 text-gray-800 font-medium">If you still didn’t download the zip file containing the control software you can download here:</p>
+                    <a href="/Release.zip" download className="inline-block px-8 py-3 bg-[#70CDE2] text-white font-bold rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">Control software</a>
+                  </div>
+
+                  <div className="relative w-full aspect-video rounded-xl overflow-hidden my-10 shadow-lg">
+                    <iframe 
+                      className="absolute top-0 left-0 w-full h-full"
+                      src="https://www.youtube.com/embed/SXH7MUGvf7g" 
+                      title="Calibration video player" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+
+                  <p>
+                    Release the 4 screws that are holding the servo disks of all motors. After uploading the code to the Arduino UNO board you can connect the motors and it will rotate them to their default positions. Run “Robot arm control” program, select the Serial PORT COM. See the video on how to calibrate the arm and then you can fasten all of the screws again after positioning the entire limb according to the video. After that, carefully try to move each motor a few degrees just to see if it’s moving the related part to the predicted direction. Make sure that the limits of the motors reach their physical boarders.
+                  </p>
+
+                  <div className="bg-gray-800 text-gray-100 p-6 rounded-xl shadow-inner my-8">
+                    <h4 className="font-mono text-xl text-[#70CDE2] mb-6 text-center">The default positions of the arm at power-on are:</h4>
+                    <ul className="font-mono space-y-2 grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
+                      <li className="bg-gray-900 py-3 rounded-lg border border-gray-700">servo 0: <span className="text-green-400 font-bold ml-2">90</span></li>
+                      <li className="bg-gray-900 py-3 rounded-lg border border-gray-700">servo 1: <span className="text-green-400 font-bold ml-2">120</span></li>
+                      <li className="bg-gray-900 py-3 rounded-lg border border-gray-700">servo 2: <span className="text-green-400 font-bold ml-2">90</span></li>
+                      <li className="bg-gray-900 py-3 rounded-lg border border-gray-700">servo 3: <span className="text-green-400 font-bold ml-2">120</span></li>
+                      <li className="bg-gray-900 py-3 rounded-lg border border-gray-700">servo 4: <span className="text-green-400 font-bold ml-2">120</span></li>
+                      <li className="bg-gray-900 py-3 rounded-lg border border-gray-700">servo 5: <span className="text-green-400 font-bold ml-2">0</span></li>
+                    </ul>
+                  </div>
+
+                  <p>
+                    The Arduino is used only to get USB frames sent from the PC an navigate the motors of that drive the arm accordingly. It will obey the following algorithm:
+                  </p>
+
+                  <div className="rounded-xl overflow-hidden mt-8 mb-4 flex justify-center shadow-lg border border-gray-100">
+                    <img
+                      src="/images/2021/01/Screenshot_1.jpg"
+                      alt="Algorithm Flowchart"
+                      className="max-w-full h-auto rounded-xl"
+                    />
+                  </div>
+                </div>
               </Section>
 
             </div>

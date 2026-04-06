@@ -2,149 +2,123 @@ import React from 'react';
 import Breadcrumb from '@/components/Breadcrumb';
 
 export const metadata = {
-  title: 'Robotic Arm with Arduino - Robotics and Energy',
-  description: 'Build a 6-axis programmable robotic arm using Arduino UNO and servo motors. Complete guide with hardware, software, and code.',
+  title: 'Robotic Arm project with Arduino - Robotics and Energy',
+  description: 'DYI - Robotic arm with Servo motors. Complete guide with hardware, software, and code.',
 };
 
-const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
+const Section: React.FC<{ title?: string; children: React.ReactNode }> = ({ title, children }) => (
   <section className="mb-10">
-    <h2 className="text-2xl font-bold text-robotics-dark mb-4 pb-2 border-b border-gray-200">{title}</h2>
+    {title && <h2 className="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b border-gray-100">{title}</h2>}
     {children}
   </section>
 );
 
-const RoboticArmPage: React.FC = () => (
-  <div className="bg-gray-50">
-    <Breadcrumb crumbs={[
-      { label: 'Home', href: '/' },
-      { label: 'Projects', href: '/projects' },
-      { label: 'Arduino Projects', href: '/projects/arduino-projects' },
-      { label: 'Robotic Arm' },
-    ]} />
+const RoboticArmPage: React.FC = () => {
+  return (
+    <div className="bg-gray-50 min-h-screen">
+      <div className="bg-white border-b border-gray-200">
+        <Breadcrumb crumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Projects', href: '/projects' },
+          { label: 'Arduino Projects', href: '/projects/arduino-projects' },
+          { label: 'Robotic arm with Arduino' },
+        ]} />
+      </div>
 
-    <div className="container mx-auto px-4 pb-16 max-w-4xl">
-      <h1 className="text-3xl md:text-4xl font-bold text-robotics-dark mb-4">
-        Robotic Arm with Arduino
-      </h1>
-      <p className="text-gray-500 mb-8 text-sm">Last updated: 2021</p>
+      <div className="container mx-auto px-4 py-12 max-w-7xl">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#70CDE2] mb-4">
+            Robotic arm project with Arduino
+          </h1>
+          <h2 className="text-2xl text-[#90dced] font-medium">
+            DYI - Robotic arm with Servo motors
+          </h2>
+        </div>
 
-      <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
-        <Section title="Introduction">
-          <p className="text-gray-600 leading-relaxed mb-4">
-            Automation has been one of the most significant factors in industrial advancement.
-            Robotic arms solve the problem of automating tasks that require high precision and
-            repeatability. In this project, we build a 6-axis programmable robotic arm that is
-            controlled via a computer interface using Arduino.
-          </p>
-          <div className="rounded-lg overflow-hidden my-4">
-            <img
-              src="https://roboticsandenergy.com/wp-content/uploads/2021/01/Real-robotic-arm-yay.jpg"
-              alt="Completed robotic arm project"
-              className="w-full object-cover"
-            />
+        <div className="flex flex-col lg:flex-row gap-12">
+          {/* Table of Contents Sidebar */}
+          <aside className="w-full lg:w-64 flex-shrink-0">
+            <div className="sticky top-24">
+              <h3 className="text-xl font-bold text-gray-800 mb-4 pb-2 border-b border-gray-200">
+                Table of Contents
+              </h3>
+              <ul className="space-y-3 text-sm text-[#70CDE2]">
+                <li><a href="#how-to-build" className="hover:text-blue-600">1. How to build a robotic arm</a></li>
+                <li><a href="#primary-parts" className="hover:text-blue-600">2. Primary parts for this project</a></li>
+                <li><a href="#hardware" className="hover:text-blue-600">3. Hardware</a></li>
+                <li><a href="#electrics" className="hover:text-blue-600">4. Electrics</a></li>
+                <li><a href="#software" className="hover:text-blue-600">5. Software</a></li>
+              </ul>
+            </div>
+          </aside>
+
+          {/* Main Content Area */}
+          <div className="flex-1 max-w-4xl">
+            <div className="bg-white rounded-2xl shadow-sm p-6 md:p-10">
+              
+              {/* YouTube Video Showcase */}
+              <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-10 shadow-lg">
+                <iframe 
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/lFh_St2SKkA" 
+                  title="YouTube video player" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+                ></iframe>
+              </div>
+
+              <Section>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Automation is one of the leading development fields mainly because it advances the industry further than ever before, providing the potential of almost fully automated production lines. Automation is stated to be the 3rd phase of the industrial revolution. A remarkable technological advancement that pushes mankind up a step in the ladder of industry tech. It makes products cheaper to produce and at larger quantities making the technology worthwhile to invest in. Since the beginning of the industrial revolution mechanical engineers developed machines to ease on the workforce. Electricity and computer science provided the gateway to something new – robotics! Automized machines capable of human activity. So current technology allows us to build machines that are capable of performing human-like actions. To do so, robots must have similar autonomy consisting moving parts that are electromechanically driven and a “brain” component to control them by following pre-determined instructions, or make them make up on its own!
+                </p>
+              </Section>
+
+              <Section>
+                <h2 id="how-to-build" className="text-3xl font-bold text-gray-800 mb-6">How to make a robotic arm</h2>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  In this project we will build the basis for an automated programmable robotic arm. We shall learn how to construct and control a 6 axis robot arm via a control interface from a computer, and write pre-determined instructions for it to follow and repeat. We will use servo motors to drive the parts and an Arduino UNO as our microcontroller that will control them while communicating with the PC via a USB cable.
+                </p>
+                <p className="text-gray-700 font-semibold mb-8">
+                  For this project please download our control software.
+                </p>
+
+                {/* Robotic Arm Project Image */}
+                <div className="rounded-xl overflow-hidden mt-8 mb-12 flex justify-center">
+                  <img
+                    src="/images/2021/01/robotic-arm-again-1.jpg"
+                    alt="Robotic arm constructed"
+                    className="max-w-full h-auto rounded-xl shadow-md border border-gray-100"
+                  />
+                </div>
+              </Section>
+
+              {/* Placeholders for the rest of the Table of Contents matching the old text to be replaced in future steps */}
+              <Section>
+                <h2 id="primary-parts" className="text-3xl font-bold text-gray-800 mb-6">Primary parts for this project</h2>
+                <p className="text-gray-500 italic">[Content pending next steps]</p>
+              </Section>
+
+              <Section>
+                <h2 id="hardware" className="text-3xl font-bold text-gray-800 mb-6">Hardware</h2>
+                <p className="text-gray-500 italic">[Content pending next steps]</p>
+              </Section>
+
+              <Section>
+                <h2 id="electrics" className="text-3xl font-bold text-gray-800 mb-6">Electrics</h2>
+                <p className="text-gray-500 italic">[Content pending next steps]</p>
+              </Section>
+
+              <Section>
+                <h2 id="software" className="text-3xl font-bold text-gray-800 mb-6">Software</h2>
+                <p className="text-gray-500 italic">[Content pending next steps]</p>
+              </Section>
+
+            </div>
           </div>
-        </Section>
-
-        <Section title="Primary Parts List">
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm border-collapse">
-              <thead>
-                <tr className="bg-gray-100">
-                  <th className="text-left p-3 border border-gray-200 font-semibold">Component</th>
-                  <th className="text-left p-3 border border-gray-200 font-semibold">Details</th>
-                </tr>
-              </thead>
-              <tbody className="text-gray-600">
-                {[
-                  ['6DOF Aluminum Robot Kit', '6-degree-of-freedom arm frame'],
-                  ['Servo Motors × 6', 'DMS15-270 or MG996R'],
-                  ['Metal Servo Discs', '25T horns for each joint'],
-                  ['Power Supply', 'XL4015 DC-DC step-down converter'],
-                  ['Arduino UNO + Shield', 'Microcontroller and servo shield'],
-                  ['Stable Mounting Base', 'For secure operation'],
-                  ['Power Source', '9-20V, 2A minimum'],
-                ].map(([comp, detail]) => (
-                  <tr key={comp} className="hover:bg-gray-50">
-                    <td className="p-3 border border-gray-200 font-medium">{comp}</td>
-                    <td className="p-3 border border-gray-200">{detail}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </Section>
-
-        <Section title="Hardware">
-          <h3 className="text-lg font-semibold text-robotics-dark mb-2">Mechanics</h3>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            Carefully assemble the arm frame following the kit instructions. Pay attention to bolt
-            tightening and proper motor orientation during assembly. If wires are too short, extend
-            them as needed. Ensure all joints move freely without binding.
-          </p>
-          <h3 className="text-lg font-semibold text-robotics-dark mb-2">Electrics</h3>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            Connect each servo to the shield. Use an external power supply (12V lithium battery with
-            step-down converter set to 5.1V) rather than the Arduino&apos;s built-in regulator to avoid
-            overloading it. The circuit connects all 6 servos to the servo shield which plugs onto
-            the Arduino UNO.
-          </p>
-        </Section>
-
-        <Section title="Software">
-          <h3 className="text-lg font-semibold text-robotics-dark mb-2">Calibration</h3>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            Download the control software and follow the calibration video. Release servo discs and
-            set each servo to its default position before reattaching the arm segments. Default
-            positions range from 0–120 degrees depending on the joint.
-          </p>
-          <h3 className="text-lg font-semibold text-robotics-dark mb-2">Arduino Code</h3>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            The Arduino code receives serial commands from the PC control software, updates servo
-            positions, and reports status back. Key functions include servo initialization, serial
-            data handling, and position updates.
-          </p>
-          <div className="bg-gray-900 text-green-400 p-4 rounded-lg text-sm font-mono overflow-x-auto">
-            <pre>{`#include <Servo.h>
-
-Servo servo[6];
-int pins[] = {3, 5, 6, 9, 10, 11};
-
-void setup() {
-  Serial.begin(9600);
-  for (int i = 0; i < 6; i++) {
-    servo[i].attach(pins[i]);
-    servo[i].write(90); // default position
-  }
-}
-
-void loop() {
-  if (Serial.available() > 0) {
-    // Read and parse position commands
-    String cmd = Serial.readStringUntil('\n');
-    // Parse: "servo_index:angle"
-    int idx = cmd.indexOf(':');
-    if (idx > 0) {
-      int s = cmd.substring(0, idx).toInt();
-      int angle = cmd.substring(idx + 1).toInt();
-      if (s >= 0 && s < 6 && angle >= 0 && angle <= 180) {
-        servo[s].write(angle);
-      }
-    }
-  }
-}`}</pre>
-          </div>
-        </Section>
-
-        <Section title="Summary">
-          <p className="text-gray-600 leading-relaxed">
-            This project provides a comprehensive introduction to robotic arm mechanics, servo motor
-            control, and computer-to-Arduino serial communication. Once built, the arm can be
-            programmed to perform a variety of automated tasks with impressive precision.
-          </p>
-        </Section>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default RoboticArmPage;

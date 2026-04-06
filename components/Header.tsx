@@ -93,14 +93,14 @@ const Header: React.FC = () => {
       <div
         className="relative w-full h-40 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url("https://roboticsandenergy.com/wp-content/uploads/2021/01/lol-1.png")',
+          backgroundImage: 'url("/images/2021/01/lol-1.png")',
         }}
       >
         {/* Logo — pushed up slightly so there is visible space between it and the nav bar */}
         <div className="absolute inset-0 flex items-center justify-center pb-10">
           <Link href="/" className="relative z-10 transition-transform hover:scale-105" aria-label="Robotics and Energy Home">
             <Image
-              src="https://roboticsandenergy.com/wp-content/uploads/2021/01/blue1-transparent.png"
+              src="/images/2021/01/blue1-transparent.png"
               alt="Robotics and Energy Logo"
               width={200}
               height={80}

@@ -7,6 +7,7 @@ import Link from 'next/link';
 interface SubItem {
   name: string;
   href: string;
+  indent?: boolean; // true = shown as a sub-item under a category
 }
 
 interface MenuItem {
@@ -21,8 +22,17 @@ const menuItems: MenuItem[] = [
     name: 'DIY Projects',
     href: '/projects',
     subItems: [
+      // Arduino category + its projects
       { name: 'Arduino Projects', href: '/projects/arduino-projects' },
+      { name: 'Robotic Arm with Arduino', href: '/projects/arduino-projects/robotic-arm', indent: true },
+      { name: 'Arduino Web Server LED Control', href: '/projects/arduino-projects/arduino-web-server-led-control', indent: true },
+      { name: 'RGB LED Strip with Arduino', href: '/projects/arduino-projects/rgb-led-strip-with-arduino', indent: true },
+      { name: 'Guitar Amplifier', href: '/projects/arduino-projects/guitar-amplifier', indent: true },
+      { name: 'Wearable Epilepsy Detector', href: '/projects/arduino-projects/wearable-epilepsy-detector', indent: true },
+      // Raspberry Pi category + its projects
       { name: 'Raspberry Pi Projects', href: '/projects/raspberry-pi-projects' },
+      { name: 'Raspberry Pi Car Project', href: '/projects/raspberry-pi-projects/raspberry-pi-car-project', indent: true },
+      // Other project pages
       { name: 'CMG Solar Project', href: '/projects/cmg-solar-project' },
       { name: 'Expert Program Computer Project', href: '/projects/expert-program-computer-project' },
     ],
@@ -41,14 +51,19 @@ const menuItems: MenuItem[] = [
 ];
 
 const DropdownMenu: React.FC<{ items: SubItem[] }> = ({ items }) => (
-  <ul className="absolute top-full left-0 mt-1 w-64 bg-white shadow-xl border border-gray-100 rounded-md z-50 py-1">
+  // No mt — flush against the nav bar so there is zero gap for the mouse to cross
+  <ul className="absolute top-full left-0 w-72 bg-white shadow-xl border border-gray-100 rounded-b-md z-50 py-1">
     {items.map((item) => (
-      <li key={item.name}>
+      <li key={item.href}>
         <Link
           href={item.href}
-          className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-robotics-blue transition-colors duration-200"
+          className={
+            item.indent
+              ? 'block pl-7 pr-4 py-1.5 text-sm text-gray-500 hover:bg-blue-50 hover:text-robotics-blue transition-colors duration-150'
+              : 'block px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-blue-50 hover:text-robotics-blue transition-colors duration-150'
+          }
         >
-          {item.name}
+          {item.indent ? `– ${item.name}` : item.name}
         </Link>
       </li>
     ))}
@@ -74,15 +89,16 @@ const Header: React.FC = () => {
 
   return (
     <header ref={headerRef} className="relative w-full z-40">
-      {/* Background banner with logo */}
+      {/* Background banner — increased height for more logo breathing room */}
       <div
-        className="relative w-full h-32 bg-cover bg-center bg-no-repeat"
+        className="relative w-full h-40 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: 'url("https://roboticsandenergy.com/wp-content/uploads/2021/01/lol-1.png")',
         }}
       >
-        <div className="absolute inset-0 flex items-center justify-center">
-          <Link href="/" className="relative z-10 transition-transform hover:scale-105 -mt-4" aria-label="Robotics and Energy Home">
+        {/* Logo — pushed up slightly so there is visible space between it and the nav bar */}
+        <div className="absolute inset-0 flex items-center justify-center pb-10">
+          <Link href="/" className="relative z-10 transition-transform hover:scale-105" aria-label="Robotics and Energy Home">
             <Image
               src="https://roboticsandenergy.com/wp-content/uploads/2021/01/blue1-transparent.png"
               alt="Robotics and Energy Logo"
@@ -110,17 +126,23 @@ const Header: React.FC = () => {
         {/* Desktop nav */}
         <nav className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-20 backdrop-blur-sm hidden md:block">
           <div className="container mx-auto px-4">
-            <ul className="flex items-center justify-center space-x-10 py-3">
+            {/*
+              self-stretch on each <li> makes it fill the full nav bar height.
+              This means the hover area extends all the way to the bottom of the nav bar,
+              so the mouse never "exits" the <li> before reaching the dropdown —
+              eliminating the gap that caused the dropdown to close prematurely.
+            */}
+            <ul className="flex items-stretch justify-center space-x-10">
               {menuItems.map((item) => (
                 <li
                   key={item.name}
-                  className="relative"
+                  className="relative flex items-center"
                   onMouseEnter={() => item.subItems && setOpenMenu(item.name)}
                   onMouseLeave={() => setOpenMenu(null)}
                 >
                   <Link
                     href={item.href}
-                    className="text-robotics-blue hover:text-white transition-colors duration-300 font-medium text-sm uppercase tracking-wide flex items-center gap-1"
+                    className="py-3 text-robotics-blue hover:text-white transition-colors duration-300 font-medium text-sm uppercase tracking-wide flex items-center gap-1"
                   >
                     {item.name}
                     {item.subItems && (
@@ -159,9 +181,13 @@ const Header: React.FC = () => {
                     {mobileExpanded === item.name && (
                       <ul className="bg-gray-50">
                         {item.subItems.map((sub) => (
-                          <li key={sub.name}>
-                            <Link href={sub.href} className="block px-8 py-2 text-sm text-gray-600 hover:text-robotics-blue" onClick={() => setMobileOpen(false)}>
-                              {sub.name}
+                          <li key={sub.href}>
+                            <Link
+                              href={sub.href}
+                              className={`block py-2 text-sm text-gray-600 hover:text-robotics-blue ${sub.indent ? 'pl-10' : 'pl-6'}`}
+                              onClick={() => setMobileOpen(false)}
+                            >
+                              {sub.indent ? `– ${sub.name}` : sub.name}
                             </Link>
                           </li>
                         ))}

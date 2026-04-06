@@ -2,6 +2,112 @@
 
 import React, { useState } from 'react';
 import Breadcrumb from '@/components/Breadcrumb';
+import CodeBlock from '@/components/CodeBlock';
+
+const arduinoCode = `//Arduino Robotic Arm Control Spftware
+//Robotocs & Energy
+//March, 2020
+#include <Servo.h>
+#include <string.h>
+Servo servo_0,servo_1,servo_2,servo_3,servo_4,servo_5;  // create servo objects to control a servo
+String received = "";
+String servo[6] = {"000", "000", "000", "000", "000", "000"};
+int pos[6] = { 90, 120, 90, 120, 120, 0 };
+int dump;
+char c;
+void dataHandle(String line)
+{
+  int servoNum;
+  int lineIndex = 0;
+  int valueIndex = 0;
+  for(servoNum = 0; servoNum < 6; servoNum++)
+  {
+    while(line[lineIndex] != ' ' && line[lineIndex] != 'e')     
+     {
+      servo[servoNum][valueIndex] = line[lineIndex];
+      valueIndex++;
+      lineIndex++;
+     }
+     lineIndex++;
+     pos[servoNum] = (servo[servoNum].toInt() / pow(10, 3 - valueIndex));
+     valueIndex = 0;
+  }
+}
+void armPosUpdate()
+{
+  servo_0.write(((float)180/270)*pos[0]);
+  servo_1.write(((float)180/270)*pos[1]);
+  servo_2.write(((float)180/270)*pos[2]);
+  servo_3.write(((float)180/270)*pos[3]);
+  servo_4.write(((float)180/270)*pos[4]);
+  servo_5.write(((float)180/270)*pos[5]);
+}
+String readServoPositions()
+{
+  int i;
+  String poses = "";
+  pos[0] = ((float)servo_0.read()*1.5); //270/180 = 1.5
+  pos[1] = ((float)servo_1.read()*1.5);
+  pos[2] = ((float)servo_2.read()*1.5);
+  pos[3] = ((float)servo_3.read()*1.5);
+  pos[4] = ((float)servo_4.read()*1.5);
+  pos[5] = ((float)servo_5.read()*1.5);
+  for(i = 0; i<6; i++)
+  {
+    poses += String(String(pos[i]) + " ");
+  }
+  return poses;
+}
+void servoStatus()
+{
+  int i;
+  for (i = 0; i < 6; i++) 
+  {
+    Serial.println(String("Servo " + String(i) + ": " + String(pos[i]) + '\\n'));
+    delay(10);
+  }
+}
+void setup() 
+{
+  pinMode(13, OUTPUT);
+  digitalWrite(13, LOW);
+  servo_0.attach(3);
+  servo_1.attach(5);
+  servo_2.attach(6); 
+  servo_3.attach(9);
+  servo_4.attach(10);
+  servo_5.attach(11);
+  armPosUpdate();
+  Serial.begin(115200); 
+  Serial.write("start");
+}
+void loop()
+ {     
+      if(Serial.available()>0)
+       {
+          delay(20);
+          do
+          {
+            c = Serial.read();
+            if (c == 'u') 
+            {
+              Serial.println(String("Update: " + readServoPositions()));
+              delay(10);
+              break;
+            }
+            else received += c;
+          }
+          while (c != 'e');
+          while(Serial.available()>0) dump = Serial.read(); // dump buffer
+          if(c != 'u' && received != "")
+          {
+            Serial.println(String("Received: " + received));
+            dataHandle(received);     
+            armPosUpdate();
+            received = "";
+          }
+       }      
+}`;
 
 const Section: React.FC<{ 
   title?: string; 
@@ -271,7 +377,68 @@ const RoboticArmPage: React.FC = () => {
                       className="max-w-full h-auto rounded-xl"
                     />
                   </div>
+
+                  {/* CodeBlock inclusion */}
+                  <CodeBlock code={arduinoCode} />
                 </div>
+              </Section>
+
+              <Section id="summary" title="Summary" isEven={true}>
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  Building a robotic arm can be quite a challenge, because it requires proficiency in numerous engineering fields. Nevertheless, you are now able to build your own robot arm. Feel free to build a robotic arm of your own to further develop the both challenging and exciting field of robotics!
+                </p>
+              </Section>
+
+              <Section id="thank-you" title="Thank you" isEven={false}>
+                <p className="text-gray-700 leading-relaxed text-lg mb-8">
+                  We thank you for learning and hopefully completing our project. We are looking forward to hear from you in the comment section. Questions and constractive critisizm is welcome.
+                </p>
+
+                <h3 className="text-xl font-bold text-gray-800 mb-6">
+                  We would like to know what you think about our Robotic arm with Arduino project
+                </h3>
+
+                <form className="space-y-6 max-w-2xl bg-white p-8 rounded-xl shadow-sm border border-gray-100/60">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-400 mb-1">Name / Nickname</label>
+                    <input type="text" placeholder="Name" className="w-full px-4 py-3 bg-white border border-gray-300 rounded focus:border-[#70CDE2] outline-none transition-shadow" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-400 mb-1">Email ( optional )</label>
+                    <input type="email" placeholder="Email" className="w-full px-4 py-3 bg-white border border-gray-300 rounded focus:border-[#70CDE2] outline-none transition-shadow" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Did you complete the project?</label>
+                    <div className="space-y-4">
+                      <label className="flex items-center space-x-3 text-gray-600">
+                        <input type="radio" name="completed" value="yes" className="form-radio text-[#70CDE2]" />
+                        <span>yes</span>
+                      </label>
+                      <label className="flex items-center space-x-3 text-gray-600">
+                        <input type="radio" name="completed" value="no" className="form-radio text-[#70CDE2]" />
+                        <span>no</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">What did you think about our project?</label>
+                    <textarea rows={4} className="w-full px-4 py-3 bg-white border border-gray-300 rounded focus:border-[#70CDE2] outline-none transition-shadow resize-y"></textarea>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">What is your level of experience in completing Electronic Projects?</label>
+                    <div className="space-y-4">
+                      {['Beginner', 'Intermediate', 'Advanced', 'Expert', 'God?'].map(level => (
+                        <label key={level} className="flex items-center space-x-3 text-gray-600">
+                          <input type="radio" name="experience" value={level} className="form-radio text-[#70CDE2]" />
+                          <span>{level}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                  <button type="button" className="w-full bg-black text-white py-4 rounded font-semibold hover:bg-gray-800 transition-colors shadow-md text-sm mt-4">
+                    Submit
+                  </button>
+                </form>
               </Section>
 
             </div>

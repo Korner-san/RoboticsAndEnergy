@@ -2,59 +2,64 @@ import React from 'react';
 import ProjectCard from '@/components/ProjectCard';
 import ArticleCard from '@/components/ArticleCard';
 
+// All images sourced from the original roboticsandenergy.com WordPress backup
+// and served locally from public/images/
 const projects = [
   {
-    title: "Arduino web server LED control project",
-    description: "A web-based LED control project using Arduino! Create a web-based interface for controlling RGB LEDs through a local area network with password protection.",
-    href: "/projects/arduino-projects/arduino-web-server-led-control",
-    imageSrc: "https://roboticsandenergy.com/wp-content/uploads/2021/01/f-1.png",
-    altText: "Arduino LED control project setup"
+    title: 'Arduino web server LED control project',
+    description: 'Create a web-based interface for controlling RGB LEDs through a local area network with password protection using Arduino and an Ethernet shield.',
+    href: '/projects/arduino-projects/arduino-web-server-led-control',
+    imageSrc: '/images/arduino-web-server-project-real.jpg',
+    altText: 'Arduino web server LED control project setup',
   },
   {
-    title: "Robotic arm with Arduino project",
-    description: "Arduino and servo motors robotic arm project. Creating a working 6-axis robotic arm that can catch and move different objects. From hardware to software, everything will be explained.",
-    href: "/projects/arduino-projects/robotic-arm",
-    imageSrc: "https://roboticsandenergy.com/wp-content/uploads/2021/01/Real-robotic-arm-yay.jpg",
-    altText: "Arduino robotic arm project"
+    title: 'Robotic arm with Arduino project',
+    description: 'Arduino and servo motors robotic arm project. Creating a working 6-axis robotic arm that can catch and move different objects. From hardware to software, everything will be explained.',
+    href: '/projects/arduino-projects/robotic-arm',
+    imageSrc: '/images/Real-robotic-arm-yay.jpg',
+    altText: 'Completed robotic arm with Arduino',
   },
   {
-    title: "PC repair assistant",
-    description: "Get to know and master the world of computer problem diagnostics to identify and fix broken PC issues using an expert system programmed in Prolog.",
-    href: "/projects/expert-program-computer-project",
-    imageSrc: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop&crop=center",
-    altText: "PC repair and diagnostics tools"
+    title: 'PC repair assistant',
+    description: 'Get to know and master the world of computer problem diagnostics to identify and fix broken PC issues using an expert system programmed in Prolog.',
+    href: '/projects/expert-program-computer-project',
+    imageSrc: '/images/Custom-dimensions-650x650-px-1.jpg',
+    altText: 'PC repair assistant expert system',
   },
   {
-    title: "Web-Controlled RGB LED Light Strip: DIY Arduino Project",
-    description: "Arduino-controlled RGB LED strip accessible through a local network interface, allowing control from any smart device, including your phone.",
-    href: "/projects/arduino-projects/rgb-led-strip-with-arduino",
-    imageSrc: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=center",
-    altText: "RGB LED strip controlled by Arduino"
-  }
+    title: 'Web-Controlled RGB LED Light Strip: DIY Arduino Project',
+    description: 'Arduino-controlled RGB LED strip accessible through a local network interface, allowing control from any smart device, including your phone.',
+    href: '/projects/arduino-projects/rgb-led-strip-with-arduino',
+    imageSrc: '/images/Add-a-heading.png',
+    altText: 'Web-controlled RGB LED light strip project',
+  },
 ];
 
 const articles = [
   {
-    title: "Internet of Things for Smart Cities",
-    subtitle: "How advanced cities operate using IoT technology",
-    date: "February 20, 2021",
+    title: 'Internet of Things for Smart Cities',
+    subtitle: 'How IoT technology is transforming urban infrastructure and city services around the world.',
+    date: 'February 20, 2021',
     comments: 0,
-    href: "/articles-iot-smart-cities"
+    href: '/articles-iot-smart-cities',
+    imageSrc: '/images/2021/02/1782-1-1.jpg',
   },
   {
-    title: "Experts concerns with Artificial intelligence",
-    subtitle: "What AI experts are saying about the future of artificial intelligence",
-    date: "February 19, 2021",
+    title: 'Experts concerns with Artificial intelligence',
+    subtitle: 'What leading scientists and tech leaders say about the risks and future of AI and AGI.',
+    date: 'February 19, 2021',
     comments: 0,
-    href: "/articles-ai-experts-concerns"
+    href: '/articles-ai-experts-concerns',
+    imageSrc: '/images/2021/02/male-human-male-robot-with-artificial-intelligence-looking-each-other_96365-174-1.jpg',
   },
   {
-    title: "Computer memory operation",
-    subtitle: "The types of computer memory, how it operates and what it looks like inside",
-    date: "January 20, 2021",
+    title: 'Computer memory operation',
+    subtitle: 'The types of computer memory, how it operates, and what it looks like inside.',
+    date: 'January 20, 2021',
     comments: 0,
-    href: "/articles-computer-memory"
-  }
+    href: '/articles-computer-memory',
+    imageSrc: '/images/2021/01/hooded-computer-hacker-stealing-information-with-laptop-2.jpg',
+  },
 ];
 
 const HomePage: React.FC = () => {
@@ -172,6 +177,7 @@ const HomePage: React.FC = () => {
                 date={article.date}
                 comments={article.comments}
                 href={article.href}
+                imageSrc={article.imageSrc}
               />
             ))}
           </div>

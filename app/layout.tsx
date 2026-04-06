@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   },
 };
 
+import TargetCursor from '@/components/TargetCursor';
+
 export default function RootLayout({
   children,
 }: {
@@ -27,6 +29,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <TargetCursor 
+          targetSelector=".cursor-target"
+          spinDuration={2}
+          hideDefaultCursor={false} // Set to false to avoid completely overriding site cursor if not everything is hoverable, change to true later if wanted
+          hoverDuration={0.2}
+          parallaxOn={true}
+        />
         <Header />
         <main className="min-h-screen">
           {children}

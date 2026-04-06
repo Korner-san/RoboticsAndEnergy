@@ -18,7 +18,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   altText 
 }) => {
   return (
-    <div className="relative group bg-white/70 backdrop-blur-xl rounded-[24px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgb(112,205,226,0.15)] transition-all duration-500 p-6 border border-white/40 overflow-hidden hover:-translate-y-2">
+    <div className="cursor-target relative group bg-white/70 backdrop-blur-xl rounded-[24px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgb(112,205,226,0.15)] transition-all duration-500 p-6 border border-white/40 overflow-hidden hover:-translate-y-2">
       {/* Decorative gradient orb for glow effect */}
       <div className="absolute -inset-1 bg-gradient-to-r from-robotics-blue/0 via-robotics-blue/10 to-purple-500/10 rounded-[28px] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
       

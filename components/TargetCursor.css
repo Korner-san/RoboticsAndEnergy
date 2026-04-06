@@ -1,0 +1,47 @@
+.target-cursor-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.target-cursor-dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #70CDE2;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(112, 205, 226, 0.8), 0 0 20px rgba(112, 205, 226, 0.4);
+}
+
+.target-cursor-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: #70CDE2;
+  border-style: solid;
+  opacity: 0.9;
+  box-shadow: 0 0 5px rgba(112, 205, 226, 0.4);
+}
+
+.corner-tl {
+  border-width: 3px 0 0 3px;
+  border-top-left-radius: 2px;
+}
+
+.corner-tr {
+  border-width: 3px 3px 0 0;
+  border-top-right-radius: 2px;
+}
+
+.corner-br {
+  border-width: 0 3px 3px 0;
+  border-bottom-right-radius: 2px;
+}
+
+.corner-bl {
+  border-width: 0 0 3px 3px;
+  border-bottom-left-radius: 2px;
+}

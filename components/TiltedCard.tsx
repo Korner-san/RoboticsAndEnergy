@@ -118,17 +118,10 @@ export default function TiltedCard({
           scale
         }}
       >
-        {/* Glow backdrop - blurred and scaled copy of the image to fill empty spaces */}
-        <motion.img
-          src={imageSrc}
-          alt=""
-          className="absolute inset-0 object-cover w-full h-full rounded-[15px] blur-2xl opacity-50 scale-110 pointer-events-none"
-        />
-
         <motion.img
           src={imageSrc}
           alt={altText}
-          className="absolute inset-0 object-contain w-full h-full rounded-[15px] will-change-transform [transform:translateZ(0)] z-10"
+          className="absolute inset-0 object-cover w-full h-full rounded-[15px] will-change-transform [transform:translateZ(0)]"
         />
 
         {displayOverlayContent && overlayContent && (

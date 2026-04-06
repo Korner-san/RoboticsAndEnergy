@@ -24,7 +24,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       
       <div className="relative z-10 w-full">
         {/* TiltedCard for the project image */}
-        <div className="mb-6 rounded-[15px] w-full overflow-hidden bg-gray-50/50 ring-1 ring-gray-900/5 shadow-inner">
+        <div className="mb-6 rounded-[15px] w-full overflow-hidden">
           <TiltedCard
             imageSrc={imageSrc}
             altText={altText || title}

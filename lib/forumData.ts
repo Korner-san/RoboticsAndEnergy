@@ -7,6 +7,7 @@ export interface Post {
   body: string;
   likes: number;
   isOP?: boolean;
+  section?: string;
 }
 
 export interface Thread {
@@ -41,6 +42,7 @@ export const threads: Thread[] = [
         body: "Hey everyone, got the kit fully assembled but servo 0 and servo 3 are rotating in the opposite direction compared to what the control software expects. The arm goes up when I tell it to go down. Has anyone run into this? Using the DMS15-270 motors as recommended.",
         likes: 8,
         isOP: true,
+        section: 'hardware',
       },
       {
         id: 'ra-2',
@@ -50,6 +52,7 @@ export const threads: Thread[] = [
         date: 'March 14, 2025',
         body: "Hi Mike! This is a very common issue. The direction depends on which side of the bracket the motor is mounted on. The control software was calibrated with motors facing a specific direction. The easiest fix is to open the control software and invert the direction for those specific servos in the settings panel.",
         likes: 12,
+        section: 'hardware',
       },
       {
         id: 'ra-3',
@@ -59,6 +62,7 @@ export const threads: Thread[] = [
         date: 'March 15, 2025',
         body: "I had the exact same issue on servo 2 and 4. Also — did anyone have to extend the motor cables? The 3-wire cables on my DMS15-270 were too short to reach the ground when the arm was fully stretched. I had to splice in about 15cm of extra wire.",
         likes: 5,
+        section: 'hardware',
       },
       {
         id: 'ra-4',
@@ -69,6 +73,7 @@ export const threads: Thread[] = [
         body: "Thanks both! The invert fix worked perfectly. And yes Sara, I had to extend cables on motors 2 and 3 too. One more question — my XL4015 BUCK converter is running quite warm. Is that normal? I have it set to 5.1V output.",
         likes: 3,
         isOP: true,
+        section: 'electrics',
       },
       {
         id: 'ra-5',
@@ -78,6 +83,7 @@ export const threads: Thread[] = [
         date: 'March 16, 2025',
         body: "Running warm is completely expected when driving 6 servos simultaneously. The XL4015 is highly efficient (~90%) but you're still pushing up to 3-4A peak. Make sure you measured the output voltage precisely with a multimeter before connecting servos — even 5.3V can damage them over time. Also give the converter some airflow if possible.",
         likes: 9,
+        section: 'electrics',
       },
       {
         id: 'ra-6',
@@ -87,6 +93,7 @@ export const threads: Thread[] = [
         date: 'March 19, 2025',
         body: "Just finished the whole build! Calibration took me about 45 minutes following the video carefully. Had to tape the base to a literal brick like the instructions say lol — but it works perfectly now. The arm holds its position really well. Highly recommend this project for anyone getting into robotics. The .NET control software is surprisingly polished!",
         likes: 21,
+        section: 'software',
       },
     ],
   },
@@ -110,6 +117,7 @@ export const threads: Thread[] = [
         body: "Hi all. I'm stuck at the very first hurdle — Serial monitor keeps printing 'ERROR - SD card initialization failed!' every single time. I've tried 3 different SD cards. The Ethernet shield is definitely seated correctly on the Arduino.",
         likes: 6,
         isOP: true,
+        section: 'hardware',
       },
       {
         id: 'ws-2',
@@ -119,6 +127,7 @@ export const threads: Thread[] = [
         date: 'February 8, 2025',
         body: "First thing to check: make sure the SD card is formatted as FAT32, not exFAT or NTFS. Also the filenames must be lowercase — login.htm, not Login.htm or LOGIN.HTM. The SD library on Arduino is case-sensitive and only supports 8.3 filenames.",
         likes: 14,
+        section: 'hardware',
       },
       {
         id: 'ws-3',
@@ -128,6 +137,7 @@ export const threads: Thread[] = [
         date: 'February 9, 2025',
         body: "I had exactly this problem too. In my case it was the SD card size — I was using a 64GB card. The W5100 Ethernet shield has issues with anything above 16GB. Switched to an old 4GB card I had lying around and it initialised on first boot. Worth trying a smaller card.",
         likes: 11,
+        section: 'hardware',
       },
       {
         id: 'ws-4',
@@ -138,6 +148,7 @@ export const threads: Thread[] = [
         body: "Dimitri you absolute legend — that was it. Switched to an 8GB FAT32 card and it initialised instantly. New problem though: the login page loads fine but even with the correct username 'root' and password '1234' it keeps returning 401 Unauthorized.",
         likes: 4,
         isOP: true,
+        section: 'software',
       },
       {
         id: 'ws-5',
@@ -147,6 +158,7 @@ export const threads: Thread[] = [
         date: 'February 10, 2025',
         body: "The HTTP request string the Arduino parses is exactly 'user=root&pass=1234' — no spaces, no capital letters. This is assembled by the JavaScript fetch() call in login.htm. Open your browser's developer tools (F12 → Network tab), click Login, and check the exact request being sent. Most likely there's a trailing space or the fetch URL is slightly wrong.",
         likes: 8,
+        section: 'software',
       },
     ],
   },
@@ -170,6 +182,7 @@ export const threads: Thread[] = [
         body: "Quick question before I start buying parts — do I really need 3 separate IRF540N MOSFETs, or can I use a single RGB controller module instead? Trying to keep the parts count low.",
         likes: 4,
         isOP: true,
+        section: 'primary-parts',
       },
       {
         id: 'led-2',
@@ -179,6 +192,7 @@ export const threads: Thread[] = [
         date: 'January 22, 2025',
         body: "You need all 3 IRF540N transistors — one per color channel. Each MOSFET is independently driven by a PWM pin (3, 5, 6) on the Arduino, which is what gives you individual brightness control per channel and enables the pattern effects. An RGB controller module would bypass the Arduino's PWM control entirely.",
         likes: 10,
+        section: 'primary-parts',
       },
       {
         id: 'led-3',
@@ -189,6 +203,7 @@ export const threads: Thread[] = [
         body: "Got the parts! Wired everything up. The basic on/off via checkboxes works great. But I don't fully understand what the 'Sweep' pattern is supposed to do — mine just slowly fades in and out on each channel.",
         likes: 3,
         isOP: true,
+        section: 'software',
       },
       {
         id: 'led-4',
@@ -198,6 +213,7 @@ export const threads: Thread[] = [
         date: 'January 25, 2025',
         body: "That's exactly right! Sweep ramps each channel from 0 to 255 and back, creating a breathing/pulsing effect. The speed is controlled by the slider position — move the slider higher to slow it down. The really cool thing is each channel (R, G, B) has its own independent timer, so if you set them to different speeds you get a colour-cycling rainbow effect.",
         likes: 15,
+        section: 'software',
       },
       {
         id: 'led-5',
@@ -230,6 +246,7 @@ export const threads: Thread[] = [
         body: "The NE5534 is listed as the op-amp for U1 but my local supplier only has NE5532 (dual version). Can I use that, or do you strictly need the single NE5534? Also would a TL072 work as a substitute for U2?",
         likes: 7,
         isOP: true,
+        section: 'bom',
       },
       {
         id: 'ga-2',
@@ -239,6 +256,7 @@ export const threads: Thread[] = [
         date: 'December 12, 2024',
         body: "The NE5532 is a dual NE5534 in a single package — you can absolutely use it for U1, just use one of the two op-amp sections. For U2 (the buffer), a TL072 will work fine since it's only copying the signal and bandwidth requirements are more relaxed there. The critical specs are on U1: high bandwidth and low noise.",
         likes: 13,
+        section: 'bom',
       },
       {
         id: 'ga-3',
@@ -248,6 +266,7 @@ export const threads: Thread[] = [
         date: 'December 15, 2024',
         body: "Don't use LM358 as a substitute — learned this the hard way. The overdrive sounds genuinely terrible with it, lots of weird aliasing and the clean signal isn't actually clean. The NE5534 is cheap on eBay/AliExpress and makes a real audible difference. Worth waiting the extra week for shipping.",
         likes: 19,
+        section: 'bom',
       },
       {
         id: 'ga-4',
@@ -258,6 +277,7 @@ export const threads: Thread[] = [
         body: "Ordered the proper parts. Got it all built now — sounds amazing! One concern: after about 10 minutes of playing, the TIP31 and TIP32 transistors are getting quite hot to the touch. I don't have heatsinks on them yet. Is that dangerous or can I just leave it?",
         likes: 5,
         isOP: true,
+        section: 'construction',
       },
       {
         id: 'ga-5',
@@ -267,6 +287,7 @@ export const threads: Thread[] = [
         date: 'December 18, 2024',
         body: "Don't leave it without heatsinks — the TIP31/32 are rated for 2W dissipation and at 12V you're right at that limit. Small TO-220 aluminum heatsinks cost about $2 for a pack of 10 on Amazon and clip straight onto the transistors. Also a thin layer of thermal paste between the transistor and heatsink makes a big difference. With heatsinks mine runs barely warm after an hour of overdrive.",
         likes: 22,
+        section: 'construction',
       },
     ],
   },
@@ -290,6 +311,7 @@ export const threads: Thread[] = [
         body: "Which Prolog interpreter should I use? I've seen GNU Prolog and SWI-Prolog mentioned online. The download on the page is a zip file — what's inside exactly? Is there a README?",
         likes: 5,
         isOP: true,
+        section: 'prolog',
       },
       {
         id: 'ep-2',
@@ -299,6 +321,7 @@ export const threads: Thread[] = [
         date: 'November 5, 2024',
         body: "SWI-Prolog is what we recommend — it's free, well-maintained and works on Windows/Mac/Linux. The zip contains engine.pl, data.pl and library.pl. Once SWI-Prolog is installed, open a terminal, navigate to the folder and run: swipl Then inside the interpreter type: consult('engine.pl'). then: start. and the diagnostic program will begin.",
         likes: 16,
+        section: 'prolog',
       },
       {
         id: 'ep-3',
@@ -309,6 +332,7 @@ export const threads: Thread[] = [
         body: "Got it running on SWI-Prolog! The PSU branch has incredibly detailed questions. I went through the full diagnosis on my old PC that wouldn't boot and it correctly identified that I should check for swollen capacitors on the motherboard — and there they were! Genuinely useful program.",
         likes: 24,
         isOP: true,
+        section: 'prolog',
       },
       {
         id: 'ep-4',
@@ -318,6 +342,7 @@ export const threads: Thread[] = [
         date: 'November 12, 2024',
         body: "The explanation system is the most impressive part for me — it traces back through every inference step it took to reach the conclusion. This is exactly how classical expert systems work and it's a great teaching example. I'm extending the knowledge base to add GPU diagnostics (black screen, artifacting, VRAM errors). The edge/vertice_data structure makes it very easy to add new branches. Would love to share the extended version if there's interest.",
         likes: 18,
+        section: 'code-structure',
       },
       {
         id: 'ep-5',

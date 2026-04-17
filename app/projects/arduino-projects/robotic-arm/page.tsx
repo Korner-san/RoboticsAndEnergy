@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Breadcrumb from '@/components/Breadcrumb';
 import CodeBlock from '@/components/CodeBlock';
+import SectionDiscussion from '@/components/SectionDiscussion';
 
 const arduinoCode = `//Arduino Robotic Arm Control Spftware
 //Robotocs & Energy
@@ -295,6 +296,7 @@ const RoboticArmPage: React.FC = () => {
                     className="max-w-full h-auto rounded-xl shadow-md border border-gray-100"
                   />
                 </div>
+                <SectionDiscussion threadSlug="robotic-arm" sectionId="hardware" />
               </Section>
 
               <Section id="electrics" title="Electrics" isEven={true}>
@@ -327,6 +329,7 @@ const RoboticArmPage: React.FC = () => {
                     We want to build a programmable and controllable arm. For that we need an interface that shows all the controls. Programming the robot arm to run pre-built commands will also be available through the interface. The best way to maintain this requirement is via computer software. For this purpose we developed a .NET framework windows application which is available for download for free. It will communicate with the Arduino board via USB interface, whereas the Arduino will serve as a bridge between the PC and the motors.
                   </p>
                 </div>
+                <SectionDiscussion threadSlug="robotic-arm" sectionId="electrics" />
               </Section>
 
               <Section id="software" title="Software" isEven={false}>
@@ -381,6 +384,7 @@ const RoboticArmPage: React.FC = () => {
                   {/* CodeBlock inclusion */}
                   <CodeBlock code={arduinoCode} />
                 </div>
+                <SectionDiscussion threadSlug="robotic-arm" sectionId="software" />
               </Section>
 
               <Section id="summary" title="Summary" isEven={true}>
@@ -389,19 +393,7 @@ const RoboticArmPage: React.FC = () => {
                 </p>
               </Section>
 
-              <Section id="discussion" isEven={true}>
-                <div className="flex flex-col sm:flex-row items-center gap-5 bg-[#70CDE2]/10 rounded-xl p-6 border border-[#70CDE2]/30">
-                  <div className="flex-1 text-center sm:text-left">
-                    <h3 className="text-xl font-bold text-gray-800 mb-1">Community Discussion</h3>
-                    <p className="text-gray-600 text-base">Got questions, built this project, or want to help others? Join the conversation.</p>
-                  </div>
-                  <a href="/forum/robotic-arm" className="flex-shrink-0 px-6 py-3 bg-[#70CDE2] text-white font-bold rounded-xl hover:bg-blue-400 transition-colors shadow-sm text-sm">
-                    💬 Join Discussion
-                  </a>
-                </div>
-              </Section>
-
-              <Section id="thank-you" title="Thank you" isEven={false}>
+<Section id="thank-you" title="Thank you" isEven={false}>
                 <p className="text-gray-700 leading-relaxed text-lg mb-8">
                   We thank you for learning and hopefully completing our project. We are looking forward to hear from you in the comment section. Questions and constractive critisizm is welcome.
                 </p>

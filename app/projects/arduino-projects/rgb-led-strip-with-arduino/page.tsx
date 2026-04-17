@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import SectionDiscussion from '@/components/SectionDiscussion';
 import Breadcrumb from '@/components/Breadcrumb';
 import CodeBlock from '@/components/CodeBlock';
 
@@ -371,6 +372,7 @@ const RGBLEDStripPage: React.FC = () => (
                 <li>CSS</li>
                 <li>JavaScript</li>
               </ul>
+              <SectionDiscussion threadSlug="rgb-led-strip-with-arduino" sectionId="primary-parts" />
             </Section>
 
             {/* Hardware */}
@@ -912,19 +914,7 @@ function playPattern(patternId)
                 </p>
                 <CodeBlock code={arduinoCode} />
               </div>
-            </Section>
-
-            {/* Discussion CTA */}
-            <Section id="discussion" isEven={true}>
-              <div className="flex flex-col sm:flex-row items-center gap-5 bg-[#70CDE2]/10 rounded-xl p-6 border border-[#70CDE2]/30">
-                <div className="flex-1 text-center sm:text-left">
-                  <h3 className="text-xl font-bold text-gray-800 mb-1">Community Discussion</h3>
-                  <p className="text-gray-600 text-base">Got questions, built this project, or want to help others? Join the conversation.</p>
-                </div>
-                <a href="/forum/rgb-led-strip-with-arduino" className="flex-shrink-0 px-6 py-3 bg-[#70CDE2] text-white font-bold rounded-xl hover:bg-blue-400 transition-colors shadow-sm text-sm">
-                  💬 Join Discussion
-                </a>
-              </div>
+              <SectionDiscussion threadSlug="rgb-led-strip-with-arduino" sectionId="software" />
             </Section>
 
             {/* Summary */}

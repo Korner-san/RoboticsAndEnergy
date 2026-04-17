@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Breadcrumb from '@/components/Breadcrumb';
+import SectionDiscussion from '@/components/SectionDiscussion';
 
 const Snippet: React.FC<{ code: string }> = ({ code }) => (
   <div className="bg-[#f1f1f1] border border-gray-300 p-4 rounded-sm overflow-x-auto text-sm font-mono leading-relaxed shadow-inner my-4">
@@ -125,6 +126,7 @@ const ExpertProgramPage: React.FC = () => (
                 ideal for expert systems. Prolog is declarative — you describe what is true, and the
                 engine figures out how to reach conclusions.
               </p>
+              <SectionDiscussion threadSlug="expert-program-computer-project" sectionId="prolog" />
             </Section>
 
             {/* Project scope */}
@@ -325,6 +327,7 @@ edge(b11, no, b12).`} />
 
                 <MissingPart label="Screenshots of the running expert system / console output" />
               </div>
+              <SectionDiscussion threadSlug="expert-program-computer-project" sectionId="code-structure" />
             </Section>
 
             {/* Summary */}
@@ -339,19 +342,6 @@ edge(b11, no, b12).`} />
                 Preparing for the project was difficult and challenging. Eventually, I learned a great
                 many things in the field of computer hardware and my proficiency in Prolog improved.
               </p>
-            </Section>
-
-            {/* Discussion CTA */}
-            <Section id="discussion" isEven={false}>
-              <div className="flex flex-col sm:flex-row items-center gap-5 bg-[#70CDE2]/10 rounded-xl p-6 border border-[#70CDE2]/30">
-                <div className="flex-1 text-center sm:text-left">
-                  <h3 className="text-xl font-bold text-gray-800 mb-1">Community Discussion</h3>
-                  <p className="text-gray-600 text-base">Got questions, built this project, or want to help others? Join the conversation.</p>
-                </div>
-                <a href="/forum/expert-program-computer-project" className="flex-shrink-0 px-6 py-3 bg-[#70CDE2] text-white font-bold rounded-xl hover:bg-blue-400 transition-colors shadow-sm text-sm">
-                  💬 Join Discussion
-                </a>
-              </div>
             </Section>
 
             {/* Thank You + Form */}

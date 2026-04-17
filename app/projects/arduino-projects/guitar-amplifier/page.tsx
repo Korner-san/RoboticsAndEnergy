@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Breadcrumb from '@/components/Breadcrumb';
+import SectionDiscussion from '@/components/SectionDiscussion';
 
 const Section: React.FC<{
   title?: string;
@@ -324,6 +325,7 @@ const GuitarAmplifierPage: React.FC = () => (
                   </tbody>
                 </table>
               </div>
+              <SectionDiscussion threadSlug="guitar-amplifier" sectionId="bom" />
             </Section>
 
             {/* Construction and Testing */}
@@ -419,19 +421,7 @@ const GuitarAmplifierPage: React.FC = () => (
                   </ul>
                 </div>
               </div>
-            </Section>
-
-            {/* Discussion CTA */}
-            <Section id="discussion" isEven={true}>
-              <div className="flex flex-col sm:flex-row items-center gap-5 bg-[#70CDE2]/10 rounded-xl p-6 border border-[#70CDE2]/30">
-                <div className="flex-1 text-center sm:text-left">
-                  <h3 className="text-xl font-bold text-gray-800 mb-1">Community Discussion</h3>
-                  <p className="text-gray-600 text-base">Got questions, built this project, or want to help others? Join the conversation.</p>
-                </div>
-                <a href="/forum/guitar-amplifier" className="flex-shrink-0 px-6 py-3 bg-[#70CDE2] text-white font-bold rounded-xl hover:bg-blue-400 transition-colors shadow-sm text-sm">
-                  💬 Join Discussion
-                </a>
-              </div>
+              <SectionDiscussion threadSlug="guitar-amplifier" sectionId="construction" />
             </Section>
 
             {/* Comment Form */}

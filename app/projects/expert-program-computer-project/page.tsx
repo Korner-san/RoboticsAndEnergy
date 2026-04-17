@@ -106,6 +106,7 @@ const ExpertProgramPage: React.FC = () => (
                 field of computer problem diagnostics. You will learn the fundamentals of expert systems,
                 logic programming in Prolog, knowledge base design, and inference engine implementation.
               </p>
+              <SectionDiscussion threadSlug="expert-program-computer-project" sectionId="what-will-you-learn" />
             </Section>
 
             {/* What is an Expert System */}
@@ -116,6 +117,7 @@ const ExpertProgramPage: React.FC = () => (
                 just like a human expert would. Expert systems are used in medicine, engineering, finance,
                 and many other domains where deep specialist knowledge can be encoded as rules.
               </p>
+              <SectionDiscussion threadSlug="expert-program-computer-project" sectionId="expert-system" />
             </Section>
 
             {/* Prolog */}
@@ -149,6 +151,7 @@ const ExpertProgramPage: React.FC = () => (
                   ))}
                 </div>
               </div>
+              <SectionDiscussion threadSlug="expert-program-computer-project" sectionId="project-scope" />
             </Section>
 
             {/* The overlay */}
@@ -201,6 +204,7 @@ const ExpertProgramPage: React.FC = () => (
                   <MissingPart label="State machine diagram — Sound & audio" />
                 </div>
               </div>
+              <SectionDiscussion threadSlug="expert-program-computer-project" sectionId="overlay" />
             </Section>
 
             {/* Code Structure */}
@@ -258,6 +262,7 @@ edge(b11, no, b12).`} />
                 </div>
 
               </div>
+              <SectionDiscussion threadSlug="expert-program-computer-project" sectionId="code-structure" />
             </Section>
 
             {/* Rules */}
@@ -327,7 +332,7 @@ edge(b11, no, b12).`} />
 
                 <MissingPart label="Screenshots of the running expert system / console output" />
               </div>
-              <SectionDiscussion threadSlug="expert-program-computer-project" sectionId="code-structure" />
+              <SectionDiscussion threadSlug="expert-program-computer-project" sectionId="rules" />
             </Section>
 
             {/* Summary */}

@@ -356,6 +356,7 @@ const ArduinoWebServerPage: React.FC = () => (
                   the software section below.
                 </p>
               </div>
+              <SectionDiscussion threadSlug="arduino-web-server-led-control" sectionId="what-will-we-learn" />
             </Section>
 
             {/* Primary Parts */}
@@ -392,6 +393,7 @@ const ArduinoWebServerPage: React.FC = () => (
                 <li>CSS</li>
                 <li>JavaScript</li>
               </ul>
+              <SectionDiscussion threadSlug="arduino-web-server-led-control" sectionId="primary-parts" />
             </Section>
 
             {/* Hardware */}

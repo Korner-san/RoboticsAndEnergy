@@ -203,6 +203,7 @@ const RoboticArmPage: React.FC = () => {
                     className="max-w-full h-auto rounded-xl shadow-md border border-gray-100"
                   />
                 </div>
+                <SectionDiscussion threadSlug="robotic-arm" sectionId="how-to-build" />
               </Section>
 
               {/* Primary Parts */}
@@ -261,6 +262,7 @@ const RoboticArmPage: React.FC = () => {
                     </a>
                   </li>
                 </ul>
+                <SectionDiscussion threadSlug="robotic-arm" sectionId="primary-parts" />
               </Section>
 
               {/* Programming Section */}
@@ -268,6 +270,7 @@ const RoboticArmPage: React.FC = () => {
                 <p className="text-gray-700 text-lg font-medium">
                   C (Arduino IDE)
                 </p>
+                <SectionDiscussion threadSlug="robotic-arm" sectionId="programming" />
               </Section>
 
               {/* Hardware */}

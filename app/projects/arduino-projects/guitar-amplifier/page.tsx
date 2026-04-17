@@ -140,6 +140,7 @@ const GuitarAmplifierPage: React.FC = () => (
                 <MissingPart label="Fig 1. Block diagram" />
                 <MissingPart label="Fig 2. Class B amp — first and second stage diagram" />
               </div>
+              <SectionDiscussion threadSlug="guitar-amplifier" sectionId="brief" />
             </Section>
 
             {/* Theoretical Background */}
@@ -242,6 +243,7 @@ const GuitarAmplifierPage: React.FC = () => (
                 </div>
 
               </div>
+              <SectionDiscussion threadSlug="guitar-amplifier" sectionId="theory" />
             </Section>
 
             {/* Schematic and Simulation */}
@@ -288,6 +290,7 @@ const GuitarAmplifierPage: React.FC = () => (
                   <MissingPart label="Fig 6. Overdrive Mode — clipped output signal at maximum gain" />
                 </div>
               </div>
+              <SectionDiscussion threadSlug="guitar-amplifier" sectionId="schematic" />
             </Section>
 
             {/* BOM */}
@@ -390,6 +393,7 @@ const GuitarAmplifierPage: React.FC = () => (
                   <MissingPart label="Fig 11. G chord from a guitar — FFT showing multiple frequencies" />
                 </div>
               </div>
+              <SectionDiscussion threadSlug="guitar-amplifier" sectionId="construction" />
             </Section>
 
             {/* Conclusions */}
@@ -421,7 +425,7 @@ const GuitarAmplifierPage: React.FC = () => (
                   </ul>
                 </div>
               </div>
-              <SectionDiscussion threadSlug="guitar-amplifier" sectionId="construction" />
+              <SectionDiscussion threadSlug="guitar-amplifier" sectionId="conclusions" />
             </Section>
 
             {/* Comment Form */}

@@ -389,6 +389,18 @@ const RoboticArmPage: React.FC = () => {
                 </p>
               </Section>
 
+              <Section id="discussion" isEven={true}>
+                <div className="flex flex-col sm:flex-row items-center gap-5 bg-[#70CDE2]/10 rounded-xl p-6 border border-[#70CDE2]/30">
+                  <div className="flex-1 text-center sm:text-left">
+                    <h3 className="text-xl font-bold text-gray-800 mb-1">Community Discussion</h3>
+                    <p className="text-gray-600 text-base">Got questions, built this project, or want to help others? Join the conversation.</p>
+                  </div>
+                  <a href="/forum/robotic-arm" className="flex-shrink-0 px-6 py-3 bg-[#70CDE2] text-white font-bold rounded-xl hover:bg-blue-400 transition-colors shadow-sm text-sm">
+                    💬 Join Discussion
+                  </a>
+                </div>
+              </Section>
+
               <Section id="thank-you" title="Thank you" isEven={false}>
                 <p className="text-gray-700 leading-relaxed text-lg mb-8">
                   We thank you for learning and hopefully completing our project. We are looking forward to hear from you in the comment section. Questions and constractive critisizm is welcome.

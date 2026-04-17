@@ -13,12 +13,19 @@ const Footer: React.FC = () => {
     { name: 'About us', href: '/about-us' },
     { name: 'Contact us', href: '/contact-us' },
     { name: 'Site map', href: '/site-map' },
+    { name: 'Forum', href: '/forum' },
+  ];
+
+  const educationLinks = [
+    { name: 'IoT for Smart Cities', href: '/articles-iot-smart-cities' },
+    { name: 'AI Experts Concerns', href: '/articles-ai-experts-concerns' },
+    { name: 'Computer Memory Operation', href: '/articles-computer-memory' },
   ];
 
   return (
     <footer className="bg-robotics-dark text-white py-12">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Social Links */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Socials</h3>
@@ -80,6 +87,20 @@ const Footer: React.FC = () => {
                   Web-Controlled RGB LED Light Strip
                 </Link>
               </li>
+            </ul>
+          </div>
+
+          {/* Education */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Education</h3>
+            <ul className="space-y-2">
+              {educationLinks.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="text-gray-300 hover:text-robotics-blue transition-colors duration-300 text-sm">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

@@ -421,8 +421,21 @@ const GuitarAmplifierPage: React.FC = () => (
               </div>
             </Section>
 
+            {/* Discussion CTA */}
+            <Section id="discussion" isEven={true}>
+              <div className="flex flex-col sm:flex-row items-center gap-5 bg-[#70CDE2]/10 rounded-xl p-6 border border-[#70CDE2]/30">
+                <div className="flex-1 text-center sm:text-left">
+                  <h3 className="text-xl font-bold text-gray-800 mb-1">Community Discussion</h3>
+                  <p className="text-gray-600 text-base">Got questions, built this project, or want to help others? Join the conversation.</p>
+                </div>
+                <a href="/forum/guitar-amplifier" className="flex-shrink-0 px-6 py-3 bg-[#70CDE2] text-white font-bold rounded-xl hover:bg-blue-400 transition-colors shadow-sm text-sm">
+                  💬 Join Discussion
+                </a>
+              </div>
+            </Section>
+
             {/* Comment Form */}
-            <Section id="leave-reply" title="Leave a Reply" isEven={true}>
+            <Section id="leave-reply" title="Leave a Reply" isEven={false}>
               <p className="text-sm text-gray-500 mb-6">Your email address will not be published. Required fields are marked *</p>
               <form className="space-y-6 max-w-2xl bg-white p-8 rounded-xl shadow-sm border border-gray-100/60">
                 <div>

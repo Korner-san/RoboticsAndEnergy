@@ -15,6 +15,8 @@ export interface Thread {
   projectHref: string;
   title: string;
   description: string;
+  image: string;
+  imageAlt: string;
   posts: Post[];
   lastActivity: string;
 }
@@ -26,6 +28,8 @@ export const threads: Thread[] = [
     projectHref: '/projects/arduino-projects/robotic-arm',
     title: 'Servo going in the wrong direction + power questions',
     description: 'Community discussion about building and calibrating the 6-axis robotic arm project.',
+    image: '/images/Real-robotic-arm-yay.jpg',
+    imageAlt: 'Completed 6-axis robotic arm build',
     lastActivity: '2 days ago',
     posts: [
       {
@@ -93,6 +97,8 @@ export const threads: Thread[] = [
     projectHref: '/projects/arduino-projects/arduino-web-server-led-control',
     title: 'SD card not initializing + login issues',
     description: 'Community discussion about setting up the Arduino web server and troubleshooting common issues.',
+    image: '/images/arduino-web-server-project-real.jpg',
+    imageAlt: 'Arduino web server LED control project',
     lastActivity: '5 days ago',
     posts: [
       {
@@ -151,6 +157,8 @@ export const threads: Thread[] = [
     projectHref: '/projects/arduino-projects/rgb-led-strip-with-arduino',
     title: 'MOSFET wiring + pattern mode questions',
     description: 'Community discussion about building the web-controlled RGB LED strip project.',
+    image: '/images/Add-a-heading.png',
+    imageAlt: 'Web-controlled RGB LED strip project',
     lastActivity: '1 week ago',
     posts: [
       {
@@ -209,6 +217,8 @@ export const threads: Thread[] = [
     projectHref: '/projects/arduino-projects/guitar-amplifier',
     title: 'Op-amp substitutes + transistor heat issues',
     description: 'Community discussion about building the Class B guitar amplifier project.',
+    image: '/images/2024/08/DALL·E-2024-08-26-23.45.50-A-monochrome-illustration-of-a-rock-guitarist-standing-with-an-electric-guitar-in-front-of-a-tall-stack-of-amplifier-speakers.-The-guitarist-is-wearin.webp',
+    imageAlt: 'Electric guitar amplifier illustration',
     lastActivity: '3 weeks ago',
     posts: [
       {
@@ -267,6 +277,8 @@ export const threads: Thread[] = [
     projectHref: '/projects/expert-program-computer-project',
     title: 'Running the Prolog program + extending the knowledge base',
     description: 'Community discussion about the Prolog-based PC repair expert system project.',
+    image: '/images/Custom-dimensions-650x650-px-1.jpg',
+    imageAlt: 'Expert system PC repair assistant',
     lastActivity: '1 month ago',
     posts: [
       {

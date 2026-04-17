@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
 import { threads } from '@/lib/forumData';
 
@@ -42,9 +43,21 @@ const ForumPage: React.FC = () => (
         {threads.map((thread) => (
           <div
             key={thread.slug}
-            className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow"
+            className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow"
           >
-            <div className="flex flex-col sm:flex-row sm:items-start gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-stretch">
+              {/* Project image */}
+              <div className="relative w-full sm:w-36 h-40 sm:h-auto flex-shrink-0">
+                <Image
+                  src={thread.image}
+                  alt={thread.imageAlt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, 144px"
+                />
+              </div>
+
+            <div className="flex flex-col sm:flex-row sm:items-start gap-4 p-6 flex-1">
               {/* Avatar cluster */}
               <div className="flex -space-x-2 flex-shrink-0">
                 {thread.posts.slice(0, 3).map((post) => (
@@ -92,6 +105,7 @@ const ForumPage: React.FC = () => (
               >
                 Join Discussion
               </Link>
+            </div>
             </div>
           </div>
         ))}

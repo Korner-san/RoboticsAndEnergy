@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import Breadcrumb from '@/components/Breadcrumb';
 import { getThread } from '@/lib/forumData';
@@ -35,18 +36,31 @@ const ForumThreadPage: React.FC = () => {
       <div className="container mx-auto px-4 py-8 max-w-3xl">
 
         {/* Thread header */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-6">
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-            <div className="flex-1">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-6">
+          {/* Project image */}
+          <div className="relative w-full h-56 sm:h-72">
+            <Image
+              src={thread.image}
+              alt={thread.imageAlt}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 768px"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6">
               <Link
                 href={thread.projectHref}
-                className="inline-block text-xs font-semibold text-[#70CDE2] bg-blue-50 px-2.5 py-0.5 rounded-full mb-3 hover:bg-blue-100 transition-colors"
+                className="inline-block text-xs font-semibold text-white bg-[#70CDE2]/80 px-2.5 py-0.5 rounded-full mb-2 hover:bg-[#70CDE2] transition-colors"
               >
                 ↗ {thread.projectTitle}
               </Link>
-              <h1 className="text-2xl font-bold text-gray-800 mb-1">{thread.title}</h1>
-              <p className="text-sm text-gray-500">{thread.posts.length} posts · Last activity {thread.lastActivity}</p>
+              <h1 className="text-2xl font-bold text-white leading-snug">{thread.title}</h1>
             </div>
+          </div>
+
+          <div className="p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <p className="text-sm text-gray-500">{thread.posts.length} posts · Last activity {thread.lastActivity}</p>
             {/* Auth buttons */}
             <div className="flex gap-2 flex-shrink-0">
               <Link

@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Breadcrumb from '@/components/Breadcrumb';
-import SectionDiscussion from '@/components/SectionDiscussion';
 
 const Snippet: React.FC<{ code: string }> = ({ code }) => (
   <div className="bg-[#f1f1f1] border border-gray-300 p-4 rounded-sm overflow-x-auto text-sm font-mono leading-relaxed shadow-inner my-4">
@@ -106,7 +105,6 @@ const ExpertProgramPage: React.FC = () => (
                 field of computer problem diagnostics. You will learn the fundamentals of expert systems,
                 logic programming in Prolog, knowledge base design, and inference engine implementation.
               </p>
-              <SectionDiscussion threadSlug="expert-program-computer-project" sectionId="what-will-you-learn" />
             </Section>
 
             {/* What is an Expert System */}
@@ -117,7 +115,6 @@ const ExpertProgramPage: React.FC = () => (
                 just like a human expert would. Expert systems are used in medicine, engineering, finance,
                 and many other domains where deep specialist knowledge can be encoded as rules.
               </p>
-              <SectionDiscussion threadSlug="expert-program-computer-project" sectionId="expert-system" />
             </Section>
 
             {/* Prolog */}
@@ -128,7 +125,6 @@ const ExpertProgramPage: React.FC = () => (
                 ideal for expert systems. Prolog is declarative — you describe what is true, and the
                 engine figures out how to reach conclusions.
               </p>
-              <SectionDiscussion threadSlug="expert-program-computer-project" sectionId="prolog" />
             </Section>
 
             {/* Project scope */}
@@ -151,7 +147,6 @@ const ExpertProgramPage: React.FC = () => (
                   ))}
                 </div>
               </div>
-              <SectionDiscussion threadSlug="expert-program-computer-project" sectionId="project-scope" />
             </Section>
 
             {/* The overlay */}
@@ -204,7 +199,6 @@ const ExpertProgramPage: React.FC = () => (
                   <MissingPart label="State machine diagram — Sound & audio" />
                 </div>
               </div>
-              <SectionDiscussion threadSlug="expert-program-computer-project" sectionId="overlay" />
             </Section>
 
             {/* Code Structure */}
@@ -262,7 +256,6 @@ edge(b11, no, b12).`} />
                 </div>
 
               </div>
-              <SectionDiscussion threadSlug="expert-program-computer-project" sectionId="code-structure" />
             </Section>
 
             {/* Rules */}
@@ -332,7 +325,6 @@ edge(b11, no, b12).`} />
 
                 <MissingPart label="Screenshots of the running expert system / console output" />
               </div>
-              <SectionDiscussion threadSlug="expert-program-computer-project" sectionId="rules" />
             </Section>
 
             {/* Summary */}

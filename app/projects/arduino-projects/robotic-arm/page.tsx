@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Breadcrumb from '@/components/Breadcrumb';
 import CodeBlock from '@/components/CodeBlock';
-import SectionDiscussion from '@/components/SectionDiscussion';
 
 const arduinoCode = `//Arduino Robotic Arm Control Spftware
 //Robotocs & Energy
@@ -203,7 +202,6 @@ const RoboticArmPage: React.FC = () => {
                     className="max-w-full h-auto rounded-xl shadow-md border border-gray-100"
                   />
                 </div>
-                <SectionDiscussion threadSlug="robotic-arm" sectionId="how-to-build" />
               </Section>
 
               {/* Primary Parts */}
@@ -262,7 +260,6 @@ const RoboticArmPage: React.FC = () => {
                     </a>
                   </li>
                 </ul>
-                <SectionDiscussion threadSlug="robotic-arm" sectionId="primary-parts" />
               </Section>
 
               {/* Programming Section */}
@@ -270,7 +267,6 @@ const RoboticArmPage: React.FC = () => {
                 <p className="text-gray-700 text-lg font-medium">
                   C (Arduino IDE)
                 </p>
-                <SectionDiscussion threadSlug="robotic-arm" sectionId="programming" />
               </Section>
 
               {/* Hardware */}
@@ -299,7 +295,6 @@ const RoboticArmPage: React.FC = () => {
                     className="max-w-full h-auto rounded-xl shadow-md border border-gray-100"
                   />
                 </div>
-                <SectionDiscussion threadSlug="robotic-arm" sectionId="hardware" />
               </Section>
 
               <Section id="electrics" title="Electrics" isEven={true}>
@@ -332,7 +327,6 @@ const RoboticArmPage: React.FC = () => {
                     We want to build a programmable and controllable arm. For that we need an interface that shows all the controls. Programming the robot arm to run pre-built commands will also be available through the interface. The best way to maintain this requirement is via computer software. For this purpose we developed a .NET framework windows application which is available for download for free. It will communicate with the Arduino board via USB interface, whereas the Arduino will serve as a bridge between the PC and the motors.
                   </p>
                 </div>
-                <SectionDiscussion threadSlug="robotic-arm" sectionId="electrics" />
               </Section>
 
               <Section id="software" title="Software" isEven={false}>
@@ -387,7 +381,6 @@ const RoboticArmPage: React.FC = () => {
                   {/* CodeBlock inclusion */}
                   <CodeBlock code={arduinoCode} />
                 </div>
-                <SectionDiscussion threadSlug="robotic-arm" sectionId="software" />
               </Section>
 
               <Section id="summary" title="Summary" isEven={true}>
@@ -396,7 +389,7 @@ const RoboticArmPage: React.FC = () => {
                 </p>
               </Section>
 
-<Section id="thank-you" title="Thank you" isEven={false}>
+              <Section id="thank-you" title="Thank you" isEven={false}>
                 <p className="text-gray-700 leading-relaxed text-lg mb-8">
                   We thank you for learning and hopefully completing our project. We are looking forward to hear from you in the comment section. Questions and constractive critisizm is welcome.
                 </p>

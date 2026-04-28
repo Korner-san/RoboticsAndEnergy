@@ -19,7 +19,7 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   { name: 'Home', href: '/' },
   {
-    name: 'DIY Tutorials',
+    name: 'DIY Projects',
     href: '/projects',
     subItems: [
       // Arduino category + its projects
@@ -37,7 +37,17 @@ const menuItems: MenuItem[] = [
       { name: 'Expert Program Computer Project', href: '/projects/expert-program-computer-project' },
     ],
   },
-  { name: 'Forum', href: '/forum' },
+  { name: 'About us', href: '/about-us' },
+  { name: 'Contact us', href: '/contact-us' },
+  {
+    name: 'Education',
+    href: '#',
+    subItems: [
+      { name: 'Internet of Things for Smart Cities', href: '/articles-iot-smart-cities' },
+      { name: 'Experts concerns with Artificial intelligence', href: '/articles-ai-experts-concerns' },
+      { name: 'Computer memory operation', href: '/articles-computer-memory' },
+    ],
+  },
 ];
 
 const DropdownMenu: React.FC<{ items: SubItem[] }> = ({ items }) => (

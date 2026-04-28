@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Breadcrumb from '@/components/Breadcrumb';
-import SectionDiscussion from '@/components/SectionDiscussion';
 
 const Section: React.FC<{
   title?: string;
@@ -137,10 +136,9 @@ const GuitarAmplifierPage: React.FC = () => (
                   sound. A good way to start the design is to put all key building blocks of the
                   project into a diagram, and then engineer each of them.
                 </p>
-                <MissingPart label="Fig 1. Block diagram" />
-                <MissingPart label="Fig 2. Class B amp — first and second stage diagram" />
+                <img src="/images/f-1.png" alt="Fig 1. Block diagram" className="w-full max-w-2xl mx-auto rounded-xl shadow-md my-6" />
+                <img src="/images/f-2.png" alt="Fig 2. Class B amp — first and second stage diagram" className="w-full max-w-2xl mx-auto rounded-xl shadow-md my-6" />
               </div>
-              <SectionDiscussion threadSlug="guitar-amplifier" sectionId="brief" />
             </Section>
 
             {/* Theoretical Background */}
@@ -194,14 +192,14 @@ const GuitarAmplifierPage: React.FC = () => (
                     by the power source, expressed as a percentage. The unused power dissipates over
                     the transistor itself in the form of heat.
                   </p>
-                  <MissingPart label="Eq 1–7: Efficiency definition, load power, effective load power, half sinewave power, supply power, efficiency calculation, dissipation power" />
+                  <img src="/images/formula-10.png" alt="Equations 1-7" className="w-full max-w-2xl mx-auto rounded-xl shadow-md my-6" />
                   <p>
                     To calculate the maximum dissipation power we take the derivative of the dissipation
                     equation with respect to voltage and compare it to zero — the equation represents a
                     &lsquo;sad&rsquo; parabola.
                   </p>
-                  <MissingPart label="Eq 8–9: Max dissipation power equations" />
-                  <MissingPart label="Fig 3. Plot of lost power (and efficiency) vs voltage" />
+                  <img src="/images/formula-11.png" alt="Equations 8-9" className="w-full max-w-2xl mx-auto rounded-xl shadow-md my-6" />
+                  <img src="/images/f-3.png" alt="Fig 3. Plot of lost power vs voltage" className="w-full max-w-2xl mx-auto rounded-xl shadow-md my-6" />
                 </div>
 
                 <div>
@@ -222,14 +220,14 @@ const GuitarAmplifierPage: React.FC = () => (
                   <p className="mt-4">
                     With a 12V supply voltage and a 6Ω load:
                   </p>
-                  <MissingPart label="Eq 10. Real power dissipation calculation" />
+                  <img src="/images/formula-2.png" alt="Eq 10. Real power dissipation" className="w-full max-w-2xl mx-auto rounded-xl shadow-md my-6" />
                   <p>
                     Therefore, we choose a large transistor capable of dissipating this power. The
                     TIP31 and TIP32 are 2W power transistors that are good for audio applications due
                     to their low distortion. We shall use them and also add a heat sink to improve the
                     power dissipation capacity.
                   </p>
-                  <MissingPart label="Eq 11. Max output power" />
+                  <img src="/images/formula-11.png" alt="Eq 11. Max output power" className="w-full max-w-2xl mx-auto rounded-xl shadow-md my-6" />
                   <p>
                     Our speaker matches this power at 15W. As you can see in Fig3, the output voltage
                     cannot be higher than the supply voltage. Therefore, if the gain is around 100 and
@@ -243,7 +241,6 @@ const GuitarAmplifierPage: React.FC = () => (
                 </div>
 
               </div>
-              <SectionDiscussion threadSlug="guitar-amplifier" sectionId="theory" />
             </Section>
 
             {/* Schematic and Simulation */}
@@ -255,7 +252,7 @@ const GuitarAmplifierPage: React.FC = () => (
                   Fig1 and the stages in Fig2? Let&apos;s explain a few key points in the circuit:
                 </p>
 
-                <MissingPart label="Fig 4. Class B Amp schematic" />
+                <img src="/images/Schematic-and-simulation.png" alt="Fig 4. Class B Amp schematic" className="w-full rounded-xl shadow-md my-6" />
 
                 <ul className="list-disc pl-5 space-y-3 text-base">
                   <li>The guitar input is represented as a 200mV 2kHz signal (V3).</li>
@@ -278,7 +275,7 @@ const GuitarAmplifierPage: React.FC = () => (
                     that the output load resistance is very small compared to the input resistance —
                     this indicates the output current is much larger than the current in the second stage.
                   </p>
-                  <MissingPart label="Fig 5. Small Signal Amplification — clean signal amplification with minimal distortion" />
+                  <img src="/images/Schematic-and-simulation-1.png" alt="Fig 5. Small Signal Amplification" className="w-full rounded-xl shadow-md my-6" />
                 </div>
 
                 <div>
@@ -287,10 +284,9 @@ const GuitarAmplifierPage: React.FC = () => (
                     Shows the clipped output signal characteristic of high-gain settings, producing a
                     distinct overdrive effect.
                   </p>
-                  <MissingPart label="Fig 6. Overdrive Mode — clipped output signal at maximum gain" />
+                  <img src="/images/Screenshot-28.png" alt="Fig 6. Overdrive Mode" className="w-full rounded-xl shadow-md my-6" />
                 </div>
               </div>
-              <SectionDiscussion threadSlug="guitar-amplifier" sectionId="schematic" />
             </Section>
 
             {/* BOM */}
@@ -328,7 +324,6 @@ const GuitarAmplifierPage: React.FC = () => (
                   </tbody>
                 </table>
               </div>
-              <SectionDiscussion threadSlug="guitar-amplifier" sectionId="bom" />
             </Section>
 
             {/* Construction and Testing */}
@@ -357,14 +352,14 @@ const GuitarAmplifierPage: React.FC = () => (
                   </li>
                 </ol>
 
-                <MissingPart label="Fig 7. Assembled circuit on a breadboard for testing" />
+                <img src="/images/Bredboard-testing.jpg" alt="Fig 7. Assembled circuit on a breadboard for testing" className="w-full rounded-xl shadow-md my-6" />
 
                 <div>
                   <h3 className="text-2xl font-bold text-gray-800 mb-3">Small signal test</h3>
                   <p>
                     The input signal (blue) and the output signal (yellow) amplified by a factor of 56.
                   </p>
-                  <MissingPart label="Fig 8. Small signal test from signal generator — 56× gain" />
+                  <img src="/images/Screenshot-29.png" alt="Fig 8. Small signal test" className="w-full rounded-xl shadow-md my-6" />
                 </div>
 
                 <div>
@@ -373,7 +368,7 @@ const GuitarAmplifierPage: React.FC = () => (
                     The input signal and the output signal after maximum amplification by a factor
                     of 100, showing clipping and overdrive.
                   </p>
-                  <MissingPart label="Fig 9. Overdriven signal test from signal generator — 100× gain with clipping" />
+                  <img src="/images/Screenshot-30.png" alt="Fig 9. Overdriven signal test" className="w-full rounded-xl shadow-md my-6" />
                 </div>
 
                 <div>
@@ -382,7 +377,7 @@ const GuitarAmplifierPage: React.FC = () => (
                     Input signal from an electric guitar (note &lsquo;A3&rsquo; at 220Hz) and the output signal
                     for comparison.
                   </p>
-                  <MissingPart label="Fig 10. Single note input from a guitar — A3 at 220Hz" />
+                  <img src="/images/Screenshot-31.png" alt="Fig 10. Single note input" className="w-full rounded-xl shadow-md my-6" />
                 </div>
 
                 <div>
@@ -390,10 +385,9 @@ const GuitarAmplifierPage: React.FC = () => (
                   <p>
                     G chord, showing multiple frequencies at once in the FFT.
                   </p>
-                  <MissingPart label="Fig 11. G chord from a guitar — FFT showing multiple frequencies" />
+                  <img src="/images/Screenshot-32.png" alt="Fig 11. G chord from a guitar" className="w-full rounded-xl shadow-md my-6" />
                 </div>
               </div>
-              <SectionDiscussion threadSlug="guitar-amplifier" sectionId="construction" />
             </Section>
 
             {/* Conclusions */}
@@ -425,11 +419,10 @@ const GuitarAmplifierPage: React.FC = () => (
                   </ul>
                 </div>
               </div>
-              <SectionDiscussion threadSlug="guitar-amplifier" sectionId="conclusions" />
             </Section>
 
             {/* Comment Form */}
-            <Section id="leave-reply" title="Leave a Reply" isEven={false}>
+            <Section id="leave-reply" title="Leave a Reply" isEven={true}>
               <p className="text-sm text-gray-500 mb-6">Your email address will not be published. Required fields are marked *</p>
               <form className="space-y-6 max-w-2xl bg-white p-8 rounded-xl shadow-sm border border-gray-100/60">
                 <div>

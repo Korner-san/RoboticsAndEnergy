@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import SectionDiscussion from '@/components/SectionDiscussion';
 import Breadcrumb from '@/components/Breadcrumb';
 import CodeBlock from '@/components/CodeBlock';
 
@@ -334,7 +333,6 @@ const RGBLEDStripPage: React.FC = () => (
                 strip. Additionally, you will become familiar with JavaScript and HTML and use them to
                 create the control interface for the LED strip.
               </p>
-              <SectionDiscussion threadSlug="rgb-led-strip-with-arduino" sectionId="what-will-we-learn" />
             </Section>
 
             {/* Primary Parts */}
@@ -373,7 +371,6 @@ const RGBLEDStripPage: React.FC = () => (
                 <li>CSS</li>
                 <li>JavaScript</li>
               </ul>
-              <SectionDiscussion threadSlug="rgb-led-strip-with-arduino" sectionId="primary-parts" />
             </Section>
 
             {/* Hardware */}
@@ -430,7 +427,6 @@ const RGBLEDStripPage: React.FC = () => (
                   className="w-full rounded-xl shadow-md border border-gray-100 mt-4"
                 />
               </div>
-              <SectionDiscussion threadSlug="rgb-led-strip-with-arduino" sectionId="hardware" />
             </Section>
 
             {/* Software */}
@@ -916,7 +912,6 @@ function playPattern(patternId)
                 </p>
                 <CodeBlock code={arduinoCode} />
               </div>
-              <SectionDiscussion threadSlug="rgb-led-strip-with-arduino" sectionId="software" />
             </Section>
 
             {/* Summary */}

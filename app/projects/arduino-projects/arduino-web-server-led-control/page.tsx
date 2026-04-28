@@ -3,7 +3,6 @@
 import React from 'react';
 import Breadcrumb from '@/components/Breadcrumb';
 import CodeBlock from '@/components/CodeBlock';
-import SectionDiscussion from '@/components/SectionDiscussion';
 
 // ── inline code snippet block (for HTML/CSS/JS snippets, not Arduino uploads) ──
 const Snippet: React.FC<{ code: string }> = ({ code }) => (
@@ -356,7 +355,6 @@ const ArduinoWebServerPage: React.FC = () => (
                   the software section below.
                 </p>
               </div>
-              <SectionDiscussion threadSlug="arduino-web-server-led-control" sectionId="what-will-we-learn" />
             </Section>
 
             {/* Primary Parts */}
@@ -393,7 +391,6 @@ const ArduinoWebServerPage: React.FC = () => (
                 <li>CSS</li>
                 <li>JavaScript</li>
               </ul>
-              <SectionDiscussion threadSlug="arduino-web-server-led-control" sectionId="primary-parts" />
             </Section>
 
             {/* Hardware */}
@@ -445,7 +442,6 @@ const ArduinoWebServerPage: React.FC = () => (
                   />
                 </div>
               </div>
-              <SectionDiscussion threadSlug="arduino-web-server-led-control" sectionId="hardware" />
             </Section>
 
             {/* Software */}
@@ -783,7 +779,6 @@ const ArduinoWebServerPage: React.FC = () => (
                 </div>
 
               </div>
-              <SectionDiscussion threadSlug="arduino-web-server-led-control" sectionId="software" />
             </Section>
 
             {/* Server / Arduino Code */}
@@ -858,7 +853,6 @@ EthernetServer server(80);`} />
                 more useful and advanced projects.
               </p>
             </Section>
-
 
             {/* Thank You + Form */}
             <Section id="thank-you" title="Thank you" isEven={false}>
